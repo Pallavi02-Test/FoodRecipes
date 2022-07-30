@@ -47,7 +47,7 @@ const RecipeScreen = ({ route }) => {
             </View>
 
             <View style={{marginTop:'20%',alignItems: 'center'}}>
-                <Text style={{fontSize:RFValue(20), color:'brown',fontWeight:'bold',textAlign:'center'}}>{details}</Text>
+                <Text style={{fontSize:RFValue(14), color:'brown',fontWeight:'bold',textAlign:'center'}}>{details}</Text>
             </View>
 
 
