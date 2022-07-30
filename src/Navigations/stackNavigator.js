@@ -3,7 +3,7 @@ import { createStackNavigator, TransitionPresets, CardStyleInterpolators } from 
 import { Easing } from 'react-native';
 import WelcomeScreen from "../Screens/WelcomScreen";
 import MainScreen from "../Screens/MainScreen";
-import RecipeScreen from "../Screens/RecipeScreen";
+import RecipeScreen from "../Screens/MainScreen/RecipeDetailScreen";
 
 const Stack = createStackNavigator();
 

@@ -6,37 +6,66 @@ import {
     ImageBackground,
     StyleSheet,
     TouchableOpacity,
-    FlatList
+    FlatList,
+    Image
 } from 'react-native';
-import { icons } from '../../constants'
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-import * as RNFS from 'react-native-fs';
-import recipes from '../../data/db.json'
+import data from '../../data/db.json';
+import RecipeItemComponent from "./component/RecipeItemComponent";
 
-const MainScreen = () => {
+const MainScreen = ({ navigation }) => {
 
-    const [content, setContent] = useState(null);
+    const [content, setContent] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);//check if json data is fetching 
 
 
 
     useEffect(() => {
-        setContent(JSON.stringify(recipes));
-        console.log("Recipes : ", content)
+        setIsLoading(false);
+        setContent(data.recipes);
     })
 
     return (
-        <View>
+
+        <View style={styles.container} >
             <FlatList
                 data={content}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={({ item, index }) => {
-                    console.log("Recipes Item : ",item)
-                }}
+                renderItem={({ item, index }) => (
+                    <RecipeItemComponent
+                        id={item.id}
+                        image={{ uri: item.image }}
+                        title={item.title}
+                        onView={() => {
+                            navigation.navigate('RecipeScreen', { recipe_Id: item.id });
+                        }}
+                    />
+
+                )}
+
+                keyExtractor={(item, index) => index}
             />
         </View>
     );
-
 }
 
 export default MainScreen;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor: 'rgba(237,239,180,0.3)',
+    },
+    imageThumbnail: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: RFValue(150),
+        borderRadius: RFValue(15),
+    },
+    text: {
+        textAlign: 'center',
+        fontSize: RFValue(14),
+        color: 'brown'
+    }
+
+});

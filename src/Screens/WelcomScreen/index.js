@@ -11,8 +11,9 @@ import { icons } from '../../constants'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { Dropdown } from 'react-native-element-dropdown';
+import I18n from "react-native-i18n";
 
-const WelcomeScreen = ({navigation}) => {
+const WelcomeScreen = ({ navigation }) => {
 
     const langugaes = [
         { label: 'English', value: '1' },
@@ -67,7 +68,7 @@ const WelcomeScreen = ({navigation}) => {
 
                     <View>
                         <TouchableOpacity
-                            onPress={() =>navigation.navigate('MainScreen')}
+                            onPress={() => navigation.navigate('MainScreen')}
                         >
                             <Text style={styles.buttonText}>Next -{'>'}</Text>
                         </TouchableOpacity>
