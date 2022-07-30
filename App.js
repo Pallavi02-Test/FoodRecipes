@@ -18,9 +18,12 @@ import WelcomeScreen from './src/Screens/WelcomScreen';
 
 const App = () => {
   return (
-      <NavigationContainer>
-        <StackNavigator />
-      </NavigationContainer>
+    <NavigationContainer>
+      <StatusBar translucent backgroundColor='transparent'
+        barStyle={"light-content"}
+      />
+      <StackNavigator />
+    </NavigationContainer>
   );
 };
 

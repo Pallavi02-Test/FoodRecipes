@@ -12,15 +12,26 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { Dropdown } from 'react-native-element-dropdown';
 import I18n from "react-native-i18n";
+import { useTranslation } from 'react-i18next';
+import '../../I18n/i18n';
 
 const WelcomeScreen = ({ navigation }) => {
 
+    const { t, i18n } = useTranslation();
+    const [currentLanguage, setLanguage] = useState('en');
+
+    const changeLanguage = value => {
+        console.log("Value : ", value);
+        i18n
+            .changeLanguage(value)
+            .then(() => setLanguage(value))
+            .catch(err => console.log(err));
+    };
+
     const langugaes = [
-        { label: 'English', value: '1' },
-        { label: 'Hindi', value: '2' },
-        { label: 'Kannada', value: '3' },
-        { label: 'Marathi', value: '4' },
-        { label: 'French', value: '5' },
+        { label: 'English', value: 'en' },
+        { label: 'French', value: 'fr' },
+
     ];
 
     const [isFocus, setIsFocus] = useState(false);
@@ -35,7 +46,7 @@ const WelcomeScreen = ({ navigation }) => {
                 <View style={styles.innerFrame}>
 
                     <View style={styles.textComponent}>
-                        <Text style={styles.text} > Welcome To The World {'\n'} of Hunger </Text>
+                        <Text style={styles.text} > {t("Welcome To The World \n of Hunger")}{' '}</Text>
                     </View>
 
 
@@ -61,6 +72,7 @@ const WelcomeScreen = ({ navigation }) => {
                             onChange={item => {
                                 setValue(item.value);
                                 setIsFocus(false);
+                                changeLanguage(item.value);
                             }}
 
                         />
