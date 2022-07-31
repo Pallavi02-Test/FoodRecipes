@@ -1,8 +1,8 @@
 {
-    "translation": {
+    "en": {
         "Apptitle": "Welcome To The World of Hunger",
         "LanguageMessage": "Select Prefered Language",
-        "SelectLocation": "Select Location",
-        "Next": "Next"
+        "Next": "Next",
+        "HeaderTitle":"Delicious Recipes"
     }
 }

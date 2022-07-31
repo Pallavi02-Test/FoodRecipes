@@ -11,22 +11,16 @@ import { icons } from '../../constants'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { Dropdown } from 'react-native-element-dropdown';
-import I18n from "react-native-i18n";
-import { useTranslation } from 'react-i18next';
-import '../../I18n/i18n';
+import { translate, changeLanguage as changeLang } from '../../../utils/languageHelper/I18n/i18n'
 
-const WelcomeScreen = ({ navigation }) => {
 
-    const { t, i18n } = useTranslation();
-    const [currentLanguage, setLanguage] = useState('en');
+const WelcomeScreen = ({navigation}) => {
 
     const changeLanguage = value => {
         console.log("Value : ", value);
-        i18n
-            .changeLanguage(value)
-            .then(() => setLanguage(value))
-            .catch(err => console.log(err));
+        changeLang(value);
     };
+
 
     const langugaes = [
         { label: 'English', value: 'en' },
@@ -46,12 +40,13 @@ const WelcomeScreen = ({ navigation }) => {
                 <View style={styles.innerFrame}>
 
                     <View style={styles.textComponent}>
-                        <Text style={styles.text} > {t("Welcome To The World \n of Hunger")}{' '}</Text>
+                        <Text style={styles.text} >{translate('Apptitle')}</Text>
                     </View>
 
+                    <Text style={styles.dropdownComponent}> {translate('LanguageMessage')}</Text>
 
                     <View >
-                        <Text style={styles.dropdownComponent}> Select Prefered Language</Text>
+
                         <Dropdown
                             style={[styles.dropdown, { marginLeft: '2%' }, isFocus && { borderColor: 'white' }]}
                             placeholderStyle={styles.placeholderStyle}
@@ -82,7 +77,7 @@ const WelcomeScreen = ({ navigation }) => {
                         <TouchableOpacity
                             onPress={() => navigation.navigate('MainScreen')}
                         >
-                            <Text style={styles.buttonText}>Next -{'>'}</Text>
+                            <Text style={styles.buttonText}>{translate('Next')} -{'>'}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -135,7 +130,7 @@ const styles = StyleSheet.create({
     },
     dropdown: {
         width: RFValue(150),
-        height: '18%',
+        height: '22%',
         borderColor: 'white',
         borderWidth: 1.5,
         borderRadius: 8,

@@ -1,8 +1,8 @@
 {
-    "translation": {
+    "fr": {
         "Apptitle": "Bienvenue Dans Le Monde De La Faim",
         "LanguageMessage": "Sélectionnez La Langue Préférée",
-        "SelectLocation": "Sélectionnez L’emplacement",
-        "Next": "Prochain"
+        "Next": "Prochain",
+        "HeaderTitle":"Recettes Délicieuses"
     }
 }

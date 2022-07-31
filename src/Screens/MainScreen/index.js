@@ -10,14 +10,20 @@ import {
     Image
 } from 'react-native';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-import data from '../../data/db.json';
+// import data from '../../data/db.json';
 import RecipeItemComponent from "./component/RecipeItemComponent";
+import { getData } from '../../../utils/apiHelper'
+import Header from './component/Header'
 
 const MainScreen = ({ navigation }) => {
 
     const [content, setContent] = useState([]);
     const [isLoading, setIsLoading] = useState(true);//check if json data is fetching 
+    const [data, setData] = useState([]);
 
+    useEffect(() => {
+        getData().then((data) => setData(data))
+    }, [])
 
 
     useEffect(() => {
@@ -27,7 +33,8 @@ const MainScreen = ({ navigation }) => {
 
     return (
 
-        <View style={styles.container} >
+        <SafeAreaView style={styles.container} >
+            <Header/>
             <FlatList
                 data={content}
                 renderItem={({ item, index }) => (
@@ -36,7 +43,7 @@ const MainScreen = ({ navigation }) => {
                         image={{ uri: item.image }}
                         title={item.title}
                         onView={() => {
-                            navigation.navigate('RecipeScreen', { recipe_Id: item.id });
+                            navigation.navigate('RecipeScreen', { recipe_item: item });
                         }}
                     />
 
@@ -44,7 +51,7 @@ const MainScreen = ({ navigation }) => {
 
                 keyExtractor={(item, index) => index}
             />
-        </View>
+        </SafeAreaView>
     );
 }
 
