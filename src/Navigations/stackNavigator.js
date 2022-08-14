@@ -4,6 +4,7 @@ import { Easing } from 'react-native';
 import WelcomeScreen from "../Screens/WelcomScreen";
 import MainScreen from "../Screens/MainScreen";
 import RecipeScreen from "../Screens/MainScreen/RecipeDetailScreen";
+import HTMLViewScreen from '../Screens/MainScreen/HtmlWebViewScree';
 
 const Stack = createStackNavigator();
 
@@ -61,7 +62,12 @@ const StackNavigator = () => {
                 component={RecipeScreen}
                 options={{ title: 'RecipeScreen', headerShown: false }}
             />
-            
+            <Stack.Screen
+                name="HTMLViewScreen"
+                component={HTMLViewScreen}
+                options={{ title: 'HTMLViewScreen', headerShown: false }}
+            />
+
         </Stack.Navigator>
 
     );

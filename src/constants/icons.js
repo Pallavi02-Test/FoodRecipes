@@ -1,5 +1,6 @@
-const backgroundImage = require('../assets/RecipeBackground.jpg');
+const backgroundImage = require('../assets/background.png');
+const chefhat = require('../assets/chefhat.png');
 
 export default{
-    backgroundImage
+    backgroundImage,chefhat
 };

@@ -4,14 +4,16 @@ import {
     Text,
     StyleSheet,
     TouchableOpacity,
+    Image,
     Dimensions
 } from 'react-native';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { translate } from '../../../../utils/languageHelper/I18n/i18n'
+import { translate } from '../../../utils/languageHelper/I18n/i18n'
+import { icons } from '../../constants/'
 
 
-const Header = ({ navigation }) => {
+const HeaderWithLogo = ({ navigation }) => {
 
     const [orientation, setOrientation] = useState(true);
 
@@ -41,11 +43,13 @@ const Header = ({ navigation }) => {
             <View
                 style={{
                     flexDirection: 'row',
-                    marginTop: orientation == true ? '13%' : '4%'
+                    marginTop: orientation == true ? '13%' : '4%',
+                    justifyContent: 'space-around',
 
                 }}>
+
                 <TouchableOpacity onPress={() => {
-                    navigation.navigate("WelcomeScreen")
+                    navigation.navigate('MainScreen');
                 }}>
                     <MaterialCommunityIcons name="arrow-left" color={'#F0F3F6'} size={25} style={{ marginTop: -3, marginLeft: '10%' }} />
                 </TouchableOpacity>
@@ -53,17 +57,24 @@ const Header = ({ navigation }) => {
                 <Text style={{
                     color: '#F0F3F6',
                     fontWeight: "bold",
-                    marginLeft: '16%',
+                    marginLeft: '0%',
                     fontFamily: 'Lorem ipsum',
                     fontSize: 18
-                }}>{translate('HeaderTitle')}</Text>
+                }}>{translate('Header')}</Text>
+
+                <Image
+                    source={icons.chefhat}
+                    style={{ width:  orientation ==  true ? '15%' : '8%', height: orientation == true ? '350%' : '380%', marginTop: orientation ==  true ? '-3%' :'-2%' }}
+                />
+
 
             </View>
+
         </View>
     );
 }
 
-export default Header;
+export default HeaderWithLogo;
 
 const styles = StyleSheet.create({
     container: {

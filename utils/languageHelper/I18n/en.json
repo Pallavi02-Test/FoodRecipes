@@ -3,6 +3,8 @@
         "Apptitle": "Welcome To The World of Hunger",
         "LanguageMessage": "Select Prefered Language",
         "Next": "Next",
-        "HeaderTitle":"Delicious Recipes"
+        "HeaderTitle":"Delicious Recipes",
+        "Header": "Recipe Details",
+        "HTMLView":"Click here for recipe ingredients and procedure"
     }
 }

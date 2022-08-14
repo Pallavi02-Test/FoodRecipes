@@ -7,32 +7,63 @@ import {
     StyleSheet,
     TouchableOpacity,
     FlatList,
-    Image
+    Image,
+    Dimensions
 } from 'react-native';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import { Shadow } from 'react-native-shadow-2';
+
+
 
 
 const RecipeItemComponent = (props) => {
+
+    const [orientation, setOrientation] = useState(true);
+
+    const determineAndSetOrientation = () => {
+        const screenWidth = Dimensions.get('window').width
+        const screenHeight = Dimensions.get('window').height
+        if (screenWidth > screenHeight) {
+            setOrientation(false)
+        } else {
+            setOrientation(true)
+        }
+    }
     return (
-        <TouchableOpacity
-            onPress={props.onView}
-            style={{
-                flex: 1,
-                flexDirection: 'column',
-                margin: '3%',
-                borderRadius: RFValue(20),
-                shadowOffset: { width: 0, height: 0 },
-                shadowOpacity: 1.2,
-                shadowRadius: 3,
-                elevation: 4,
-                shadowColor: 'rgba(222,98,18,0.7)',
-            }}>
-            <Image
-                style={styles.imageThumbnail}
-                source={props.image}
-            />
+
+        // <Shadow>
+        <View onLayout={() => determineAndSetOrientation()}>
+            <TouchableOpacity
+                onPress={props.onView}
+                style={{
+                    flex: 1,
+                    flexDirection: 'column',
+                    margin: '5%',
+                    borderRadius: RFValue(20),
+                    shadowOffset: { width: 0, height: 0 },
+                    shadowOpacity: 0.5,
+                    shadowRadius: RFValue(20),
+                    // elevation: 2,
+                    shadowColor: 'white',
+                    alignSelf: 'stretch',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderBottomWidth: 5,
+                    borderBottomColor: 'rgba(128,0,0,0.3)'
+                }}>
+                <Image
+                    style={[styles.imageThumbnail, { 
+                        width: orientation == true ?  160 : 300,
+                        height: orientation == true ? 160 : 300
+                    }]}
+                    source={props.image}
+                />
+
+            </TouchableOpacity>
             <Text style={styles.text}>{props.title}</Text>
-        </TouchableOpacity>
+        </View>
+        // </Shadow>
+
     );
 
 }
@@ -45,17 +76,24 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         backgroundColor: 'rgba(237,239,180,0.3)',
+        alignItems: 'center'
     },
     imageThumbnail: {
-        justifyContent: 'center',
+        width: 160,
+        height: 160,
         alignItems: 'center',
-        height: RFValue(150),
-        borderRadius: RFValue(15),
+        justifyContent: 'center',
+        borderRadius: 10,
+        borderWidth: 0.5,
+        borderColor: 'white',
+        marginTop: '6%'
+
     },
     text: {
         textAlign: 'center',
         fontSize: RFValue(14),
-        color: 'brown'
+        color: 'white',
+        fontWeight: 'bold'
     }
 
 });

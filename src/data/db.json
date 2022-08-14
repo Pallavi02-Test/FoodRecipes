@@ -5,14 +5,16 @@
             "details": "Panner Tikka is one of the most common food of choice at the restaurant and this video breaks the recipe for you, so that you can try this yummy, flavourful paneer dish at home.  Try it today!",
             "image": "https://www.cookforindia.com/wp-content/uploads/2016/08/Paneer-Tikka-_LR.jpg",
             "video": "c-oVDb-O2Q8",
-            "id": 1
+            "id": 1,
+            "htmlView":"http://www.rarerecipes.net/paneer_tikka_recipe.pdf"
         },
         {
             "title": "Gobi Manchurian",
             "details": "Gobi Manchurian is a classic Indo Chinese dish made from cauliflower and tossed in a sweet and sour sauce.",
             "image": "http://mayabugs.com/blog/wp-content/uploads/2013/06/Gobi-Manchurian-3.jpg",
             "video": "fV8pu8pOEF8",
-            "id": 2
+            "id": 2,
+            "htmlView":"https://hebbarskitchen.com/dry-gobi-manchurian-recipe/"
         },
         {
             "title": "Cheesy Crust Pizza",
