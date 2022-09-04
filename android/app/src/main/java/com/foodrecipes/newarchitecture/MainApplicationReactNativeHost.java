@@ -1,4 +1,4 @@
-package com.foodrecipes.newarchitecture;
+package com.MovieApp.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.foodrecipes.BuildConfig;
-import com.foodrecipes.newarchitecture.components.MainComponentsRegistry;
-import com.foodrecipes.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.MovieApp.BuildConfig;
+import com.MovieApp.newarchitecture.components.MainComponentsRegistry;
+import com.MovieApp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

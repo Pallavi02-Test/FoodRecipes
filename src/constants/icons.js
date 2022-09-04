@@ -1,6 +1,8 @@
-const backgroundImage = require('../assets/background.png');
-const chefhat = require('../assets/chefhat.png');
+const movie_icon = require('../assets/movie_icon.png');
+const left_icon = require('../assets/chevron_left_gray.png');
+const right_icon = require('../assets/chevron_right_gray.png')
+
 
 export default{
-    backgroundImage,chefhat
+    movie_icon,left_icon,right_icon
 };

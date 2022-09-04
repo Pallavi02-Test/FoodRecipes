@@ -7,23 +7,28 @@
  */
 
 import React from 'react';
-import { SafeAreaView, StatusBar, View } from 'react-native';
+import { SafeAreaView, StatusBar, View, LogBox } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { StackNavigator } from './src/Navigations/stackNavigator';
+import SplashScreen from './src/Components/splashScreen';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import WelcomeScreen from './src/Screens/WelcomScreen';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
+
+
 
 
 
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <SafeAreaProvider>
       <StatusBar translucent backgroundColor='transparent'
         barStyle={"light-content"}
       />
-      <StackNavigator />
-    </NavigationContainer>
+      <SplashScreen></SplashScreen>
+    </SafeAreaProvider>
   );
 };
 
